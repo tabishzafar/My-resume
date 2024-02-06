@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>Calculator</title>
+
+    <style>
+        body {
+            background-color: rgb(100, 141, 141);
+            font-size: 20px;
+        }
+
+        #clear {
+            width: 70px;
+            height: 30px;
+            background-color: rgb(9, 58, 9);
+            color: whitesmoke;
+        }
+
+        #clear:hover{
+            background-color: darkgray;
+            color: darkolivegreen;
+        }
+
+        #x {
+            width: 150px;
+            height: 40px;
+            background-color: rgb(9, 58, 9);
+            color: darkorange;
+        }
+
+        #ans {
+            width: 350px;
+            height: 35px;
+            padding: 15px;
+            color: white;
+            border-radius: 15px 15px 0px 0px;
+            background-color: rgb(177, 100, 100);
+        }
+
+        #ans1 {
+            width: 350px;
+            height: 35px;
+            margin-top: -20px;
+            padding: 15px;
+            text-align: right;
+            font-size: 45px;
+            color: white;
+            border-radius: 0px 0px 15px 15px;
+            background-color: rgb(85, 109, 146);
+        }
+
+        .formstyle {
+            width: 381px;
+            height: 494px;
+            padding: 10px;
+            border-radius: 30px;
+            margin: auto;
+            margin-top: 35px;
+            background-color: rgb(180, 216, 180);
+        }
+
+        .formstyle h3{
+            padding-left: 130px;
+            color: rgb(5, 112, 14);
+            text-decoration: underline;
+        }
+        span{
+            color: navy;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        input {
+            width: 70px;
+            height: 30px;
+            border: none;
+            font-weight: 700;
+            border-radius: 15px;
+            font-size: large;
+            background-color: rgb(70, 148, 70);
+
+        }
+
+        input:hover{
+            cursor: pointer;
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        function insert(n) {
+            document.forms.answer.value += n;
+        }
+
+        function equal() {
+            let exp = document.forms.answer.value;
+            if (exp[0]=='&radic;') {
+                document.forms.answer1.value = math.sqrt(exp[1]);
+            }
+            else {
+                document.forms.answer1.value = eval(exp);
+            }
+        }
+
+        function backspace() {
+            var exp = document.forms.answer.value;
+            document.forms.answer.value = exp.substring(0, exp.length - 1);
+        }
+
+        function domath() {
+            var inputNum1=document.forms.answer.value;
+            var result = math.sqrt(inputNum1);
+            document.forms.answer1.value = result;
+        }
+
+
+        </script>
+
+
+</head>
+
+<body>
+    
+    
+    <div class="formstyle">
+        <h3>TABISH <span>Zafar</span></h3>
+        <form name="forms">
+            <input type="text" name="answer" id="ans" readonly> <br /><br />
+            <input type="text" name="answer1" id="ans1" readonly> <br /><br />
+            <input type="button" value=" ( " onclick="insert('(')" id="clear">
+            <input type="button" value=" ) " onclick="insert('(')" id="clear">
+            <input type="button" value="ans" onclick="equal()" id="clear">
+            <input type="button" value="del" onclick="backspace()" id="clear">
+            <input type="button" value="clear" onclick="form.answer.value='';form.answer1.value=''" id="clear">
+            <br /><br />
+
+
+            <input type="button" value="7" onclick="insert(7)">
+            <input type="button" value="8" onclick="insert(8)">
+            <input type="button" value="9" onclick="insert(9)">
+            <input type="button" value="%" onclick="insert('%')" id="clear">
+            <input type="button" value=" &radic;" onclick="domath()" id="clear">
+
+            <br /><br />
+
+            <input type="button" value="4" onclick="insert(4)">
+            <input type="button" value="5" onclick="insert(5)">
+            <input type="button" value="6" onclick="insert(6)">
+            <input type="button" value="&times;" onclick="insert('*')" id="clear">
+            <input type="button" value=" &divide; " onclick="insert('/')" id="clear">
+
+            <br /><br />
+
+            <input type="button" value="3" onclick="insert(3)">
+            <input type="button" value="2" onclick="insert(2)">
+            <input type="button" value="1" onclick="insert(1)">
+            <input type="button" value="+" onclick="insert('+')" id="clear">
+            <input type="button" value=" - " onclick="insert(' - ')" id="clear">
+            
+            <br /><br />
+            
+            <input type="button" value="." onclick="insert('.')">
+            <input type="button" value=" 0 " onclick="insert(0)">
+            <input type="button" value=" +- " onclick="insert('-')" id="clear">
+            <input type="button" value=" = " onclick="equal('+')" id="x">
+            
+            
+            <br /><br />
+            
+            <br /><br />
+            
+        </form>
+    </div>
+
+</body>
+
+</html>
